@@ -25,5 +25,5 @@ The United States Geological Survey (USGS) performs a number of different types 
 
 ## Flask App Predictions
 
-https://user-images.githubusercontent.com/14945916/133721966-335c558b-ba40-4819-af2c-0b99b6f66d7c.mp4
+![App Gif](https://j.gifs.com/w0rxMX.gif)
 

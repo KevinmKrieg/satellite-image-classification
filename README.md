@@ -43,7 +43,13 @@ The landscape images for this project come from the United States Geological Sur
 
 ![Class Examples](examples.png)
 
-## 2. Transfer Learning
+## 2. Image Augmentation
+
+Additional data points were created by creating permutations of each image via random flips & rotations
+
+[Augmented Images](augmentations.png)
+
+## 3. Transfer Learning
 
 Transfer learning is usually done for tasks where your dataset has too little data to train a full-scale model from scratch.
 
@@ -57,15 +63,41 @@ A last, optional step, is fine-tuning, which consists of unfreezing the entire m
 
 This project will make use of a pre-trained model named [Xception](https://keras.io/api/applications/xception/), a deep convolutional neural network architecture trained on 350 million images and 17,000 classes.
 
-## 3. Image Augmentation
 
-Additional data points were created by creating permutations of each image via random flips & rotations
-
-[Augmented Images](augmentations.png)
 
 ## 4. Building the Model
 
 [Model Training Notebook](Land_Use_Classification_2_0.ipynb)
+
+```
+Model: "model"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_2 (InputLayer)         [(None, 150, 150, 3)]     0         
+_________________________________________________________________
+sequential (Sequential)      (None, 150, 150, 3)       0         
+_________________________________________________________________
+normalization (Normalization (None, 150, 150, 3)       7         
+_________________________________________________________________
+xception (Functional)        (None, 5, 5, 2048)        20861480  
+_________________________________________________________________
+global_average_pooling2d (Gl (None, 2048)              0         
+_________________________________________________________________
+dropout (Dropout)            (None, 2048)              0         
+_________________________________________________________________
+dense (Dense)                (None, 1024)              2098176   
+_________________________________________________________________
+dense_1 (Dense)              (None, 21)                21525     
+=================================================================
+Total params: 22,981,188
+Trainable params: 2,119,701
+Non-trainable params: 20,861,487
+_________________________________________________________________
+```
+
+Training & Validation Accuracy/Loss during 1st round of training of new layers on top of frozen base layer.
+![Accuracy & Loss](first_training_round.png)
 
 
 
@@ -74,7 +106,7 @@ Additional data points were created by creating permutations of each image via r
 ## Flask App Predictions
 [Flask App Repo](https://github.com/mtobeiyf/keras-flask-deploy-webapp)
 
-Using a forked version of the repo linked below, a flask app was deployed to visualize the models predictions in real time. Instrusctions for downloading/deploying this model and app can be found [here]()
+Using a forked version of the repo linked below, a flask app was deployed to visualize the models predictions in real time. Instrusctions for downloading/deploying this model and app can be found [here](https://github.com/KevinmKrieg/satellite-image-classification/blob/main/flask_webapp/README.md)
 
 ![App Gif](https://j.gifs.com/w0rxMX.gif)
 

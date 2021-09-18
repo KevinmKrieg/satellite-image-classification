@@ -14,16 +14,68 @@ Despite the abundance of data, satellite imagery remains a  difficult source to 
 
 
 
-## 1. Data
+## 1. The Data
 
-The United States Geological Survey (USGS) performs a number of different types of remote sensing data collections around the country, and makes their research publicly available. One of their projects is the “National Map Urban Area Imagery” collection of satellite images, 
+The landscape images for this project come from the United States Geological Survey (USGS). USGS perform a number of different types of remote sensing data collections around the country, and makes their research publicly available. One of their projects is the “National Map Urban Area Imagery” collection of satellite images. This dataset contains 2100 images belonging to 21 different classes (100 images per class). 
+
+[USGS Website](https://www.usgs.gov/products/data-and-tools/data-and-tools-topics)
+#### Classes: 
+- airplane
+- baseballdiamond
+- beach
+- buildings
+- chaparral
+- denseresidential
+- forest
+- freeway
+- golfcourse
+- harbor
+- intersection
+- mediumresidential
+- mobilehomepark
+- overpass
+- parkinglot
+- river
+- runway
+- sparseresidential
+- storagetanks
+- tenniscourt
+
+![Class Examples](examples.png)
+
+## 2. Transfer Learning
+
+Transfer learning is usually done for tasks where your dataset has too little data to train a full-scale model from scratch.
+
+The most common incarnation of transfer learning in the context of deep learning is the following workflow:
+
+Take layers from a previously trained model.
+Freeze them, so as to avoid destroying any of the information they contain during future training rounds.
+Add some new, trainable layers on top of the frozen layers. They will learn to turn the old features into predictions on a new dataset.
+Train the new layers on your dataset.
+A last, optional step, is fine-tuning, which consists of unfreezing the entire model you obtained above (or part of it), and re-training it on the new data with a very low learning rate. This can potentially achieve meaningful improvements, by incrementally adapting the pretrained features to the new data.
+
+This project will make use of a pre-trained model named [Xception](https://keras.io/api/applications/xception/), a deep convolutional neural network architecture trained on 350 million images and 17,000 classes.
+
+## 3. Image Augmentation
+
+Additional data points were created by creating permutations of each image via random flips & rotations
+
+[Augmented Images](augmentations.png)
+
+## 4. Building the Model
+
+[Model Training Notebook](Land_Use_Classification_2_0.ipynb)
 
 
 
-> * [USGS Website](https://www.usgs.gov/products/data-and-tools/data-and-tools-topics)
 
 
 ## Flask App Predictions
+[Flask App Repo](https://github.com/mtobeiyf/keras-flask-deploy-webapp)
+
+Using a forked version of the repo linked below, a flask app was deployed to visualize the models predictions in real time. Instrusctions for downloading/deploying this model and app can be found [here]()
 
 ![App Gif](https://j.gifs.com/w0rxMX.gif)
+
 

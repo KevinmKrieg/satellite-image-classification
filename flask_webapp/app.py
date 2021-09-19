@@ -34,11 +34,10 @@ from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
 
 
 # Model saved with Keras model.save()
-MODEL_PATH = '/Users/k.krieg/Springboard/Land Use Classification/land_use_classifier_v1.h5'
+MODEL_PATH = 'land_use_classifier_v1.h5'
 
 # Load your own trained model
 model = load_model(MODEL_PATH)
-# model._make_predict_function()          # Necessary
 print('Model loaded. Start serving...')
 
 

@@ -101,6 +101,10 @@ Training & Validation Accuracy/Loss during 1st round of training of new layers o
 ![Accuracy & Loss](first_training_round.png)
 
 
+After the 1st round of training epochs, a 2nd round of fine-tuning was run with all layers now unfrozen (trainale). This fine tuning round of training saw the a large increase in performance.
+
+![Accuracy & Loss](2nd_training_round.png)
+
 
 
 

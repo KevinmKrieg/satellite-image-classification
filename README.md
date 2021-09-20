@@ -62,7 +62,7 @@ Add some new, trainable layers on top of the frozen layers. They will learn to t
 Train the new layers on your dataset.
 A last, optional step, is fine-tuning, which consists of unfreezing the entire model you obtained above (or part of it), and re-training it on the new data with a very low learning rate. This can potentially achieve meaningful improvements, by incrementally adapting the pretrained features to the new data.
 
-This project will make use of a pre-trained model named [Xception](https://keras.io/api/applications/xception/), a deep convolutional neural network architecture trained on 350 million images and 17,000 classes.
+This project will make use of a pre-trained Keras model named [Xception](https://keras.io/api/applications/xception/), a deep convolutional neural network architecture trained on 350 million images and 17,000 classes.
 
 
 

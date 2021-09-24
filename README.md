@@ -52,17 +52,17 @@ Additional data points were created by creating permutations of each image via r
 
 ## 3. Transfer Learning
 
-Transfer learning is usually done for tasks where your dataset has too little data to train a full-scale model from scratch.
+Transfer learning is the process of taking weights & features learned by a pre-trained model, and applyinng them to a new similar problem to kickstart the model building process, rather than starting from scratch. It is especially useful when the problem training set has a low amount of data.
 
-The most common incarnation of transfer learning in the context of deep learning is the following workflow:
+This project will make use of a pre-trained Keras model named [Xception](https://keras.io/api/applications/xception/), a deep convolutional neural network architecture trained on 350 million images and 17,000 classes.
 
 Take layers from a previously trained model.
 Freeze them, so as to avoid destroying any of the information they contain during future training rounds.
 Add some new, trainable layers on top of the frozen layers. They will learn to turn the old features into predictions on a new dataset.
 Train the new layers on your dataset.
-A last, optional step, is fine-tuning, which consists of unfreezing the entire model you obtained above (or part of it), and re-training it on the new data with a very low learning rate. This can potentially achieve meaningful improvements, by incrementally adapting the pretrained features to the new data.
+A last, optional step, is fine-tuning, which consists of unfreezing the entire model you obtained above (or part of it), and re-training it on the new data with a very low learning rate. This can potentially achieve meaningful improvements, by incrementally adapting the pretrained features to the new data"
 
-This project will make use of a pre-trained Keras model named [Xception](https://keras.io/api/applications/xception/), a deep convolutional neural network architecture trained on 350 million images and 17,000 classes.
+
 
 
 
